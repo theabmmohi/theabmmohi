@@ -1,0 +1,11 @@
+{
+  "name": "theabmmohi",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "update": "node an.js"
+  },
+  "dependencies": {
+    "@octokit/rest": "^22.0.1"
+  }
+}
