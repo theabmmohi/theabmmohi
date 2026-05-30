@@ -13,7 +13,7 @@
 
 </div>
 
-## cat about.txt
+## $ cat about.txt
 
 ```yaml
 name        : Im ABM
@@ -27,7 +27,7 @@ bug_fixer   : sometimes
 
 > *"Iꜰ ʏᴏᴜ ᴡᴇʀᴇ ᴛᴏ ᴛᴜʀɴ ɪɴᴛᴏ ᴀ ꜱɴᴀᴋᴇ ᴛᴏᴍᴏʀʀᴏᴡ ᴀɴᴅ ʙᴇɢɪɴ ᴅᴇᴠᴏᴜʀɪɴɢ ʜᴜᴍᴀɴꜱ, ᴀɴᴅ ꜰʀᴏᴍ ᴛʜᴇ ꜱᴀᴍᴇ ᴍᴏᴜᴛʜ ʏᴏᴜ ᴅᴇᴠᴏᴜʀᴇᴅ ʜᴜᴍᴀɴꜱ, ʏᴏᴜ ᴄʀɪᴇᴅ ᴏᴜᴛ ᴛᴏ ᴍᴇ 'ɪ ʟᴏᴠᴇ ʏᴏᴜ!' — ᴡᴏᴜʟᴅ ɪ ꜱᴛɪʟʟ ʙᴇ ᴀʙʟᴇ ᴛᴏ ꜱᴀʏ 'ɪ ʟᴏᴠᴇ ʏᴏᴜ' ᴛʜᴇ ꜱᴀᴍᴇ ᴡᴀʏ ɪ ᴅᴏ ᴛᴏᴅᴀʏ?"* - Gin, Bleach
 
-## ls stacks
+## $ ls stacks
 
 <!-- TECH-STACK:START -->
 <div align="center">
@@ -43,17 +43,19 @@ bug_fixer   : sometimes
 </div>
 <!-- TECH-STACK:END -->
 
-## git stats theabmmohi
+## $ git stats theabmmohi
 
 <div align="center">
 
 
-<img src="https://streak-stats.demolab.com?user=theabmmohi&theme=tokyonight&hide_border=true&background=0D1117&ring=00FF9C&fire=00FF9C&currStreakLabel=00FF9C" width="60%" />
+![](https://github-readme-stats.shion.dev/api?username=theabmmohi&theme=default&hide_border=false&include_all_commits=true&count_private=true)<br/>
+![](https://streak-stats.demolab.com/?user=theabmmohi&theme=default&hide_border=false)<br/>
+![](https://github-readme-stats.shion.dev/api/top-langs/?username=theabmmohi&theme=default&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
 
 
 </div>
 
-## git log graph
+## $ git log graph
 
 <div align="center">
 
