@@ -4,10 +4,10 @@
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=1000&color=00FF9C&center=true&vCenter=true&width=600&lines=Hey+there%2C+I'm+Im+ABM+%F0%9F%91%BE;Student+%7C+Developer+%7C+Learner;@theabmmohi+%E2%80%94+everywhere+online)](https://git.io/typing-svg)
 
-[![GitHub](https://img.shields.io/badge/GitHub-theabmmohi-181717?style=for-the-badge&logo=github)](https://github.com/theabmmohi)
-[![Telegram](https://img.shields.io/badge/Telegram-theabmmohi-26A5E4?style=for-the-badge&logo=telegram)](https://t.me/theabmmohi)
-[![Facebook](https://img.shields.io/badge/Facebook-theabmmohi-1877F2?style=for-the-badge&logo=facebook)](https://facebook.com/theabmmohi)
-[![Instagram](https://img.shields.io/badge/Instagram-theabmmohi-E4405F?style=for-the-badge&logo=instagram)](https://instagram.com/theabmmohi)
+[![GitHub](https://img.shields.io/badge/GitHub-theabmmohi-181717?style=flat&logo=github)](https://github.com/theabmmohi)
+[![Telegram](https://img.shields.io/badge/Telegram-theabmmohi-26A5E4?style=flat&logo=telegram)](https://t.me/theabmmohi)
+[![Facebook](https://img.shields.io/badge/Facebook-theabmmohi-1877F2?style=flat&logo=facebook)](https://facebook.com/theabmmohi)
+[![Instagram](https://img.shields.io/badge/Instagram-theabmmohi-E4405F?style=flat&logo=instagram)](https://instagram.com/theabmmohi)
 
 
 
