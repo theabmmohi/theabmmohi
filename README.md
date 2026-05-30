@@ -48,9 +48,8 @@ bug_fixer   : sometimes
 <div align="center">
 
 
-![](https://github-readme-stats.shion.dev/api?username=theabmmohi&theme=default&hide_border=false&include_all_commits=true&count_private=true)<br/>
-![](https://streak-stats.demolab.com/?user=theabmmohi&theme=default&hide_border=false)<br/>
-![](https://github-readme-stats.shion.dev/api/top-langs/?username=theabmmohi&theme=default&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
+![](https://github-readme-stats.shion.dev/api?username=theabmmohi&theme=aura&hide_border=false&include_all_commits=true&count_private=true)
+![](https://streak-stats.demolab.com/?user=theabmmohi&theme=aura&hide_border=false)
 
 
 </div>
@@ -70,15 +69,12 @@ bug_fixer   : sometimes
 <div align="center">
 
 
-
 `Visitors since THAT day:`
-
 ![Profile Views](https://komarev.com/ghpvc/?username=theabmmohi&color=00FF9C&style=for-the-badge&label=VISITORS)
 
 ```
 > process.exit(0)  // thanks for visiting 👾
 ```
-
 
 
 </div>
