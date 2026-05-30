@@ -48,7 +48,7 @@ bug_fixer   : sometimes
 <div align="center">
 
 
-![](https://github-readme-stats.shion.dev/api?username=theabmmohi&theme=aura&hide_border=false&include_all_commits=true&count_private=true)
+![](https://github-readme-stats.shion.dev/api?username=theabmmohi&theme=aura&hide_border=false&include_all_commits=true&count_private=true)<br/>
 ![](https://streak-stats.demolab.com/?user=theabmmohi&theme=aura&hide_border=false)
 
 
@@ -69,7 +69,7 @@ bug_fixer   : sometimes
 <div align="center">
 
 
-`Visitors since THAT day:`
+`Visitors since THAT day:`<br/>
 ![Profile Views](https://komarev.com/ghpvc/?username=theabmmohi&color=00FF9C&style=for-the-badge&label=VISITORS)
 
 ```
