@@ -2,7 +2,7 @@
 
 
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=1000&color=00FF9C&center=true&vCenter=true&width=600&lines=Hey+there%2C+I'm+Im+ABM+%F0%9F%91%BE;Student+%7C+Developer+%7C+Learner;@theabmmohi+%E2%80%94+everywhere+online)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=1000&color=00FF9C&center=true&vCenter=true&width=600&lines=Hey+there%2C+I'm+ImABM+%F0%9F%91%BE;Student+%7C+Developer+%7C+Learner;@theabmmohi+%E2%80%94+everywhere+online)](https://git.io/typing-svg)
 
 [![GitHub](https://img.shields.io/badge/GitHub-theabmmohi-181717?style=flat&logo=github)](https://github.com/theabmmohi)<br/>
 [![Telegram](https://img.shields.io/badge/Telegram-theabmmohi-26A5E4?style=flat&logo=telegram)](https://t.me/theabmmohi)<br/>
@@ -70,7 +70,7 @@ bug_fixer   : sometimes
 
 
 `Visitors since THAT day:`<br/><br/>
-![Profile Views](https://komarev.com/ghpvc/?username=theabmmohi&color=00FF9C&style=for-the-badge&label=VISITORS)
+[![Profile Views](https://komarev.com/ghpvc/?username=theabmmohi&color=00FF9C&style=for-the-badge&label=VISITORS)](https://github.com/theabmmohi)
 
 ```
 > process.exit(0)  // thanks for visiting 👾
