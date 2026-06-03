@@ -59,7 +59,7 @@ bug_fixer   : sometimes
 
 
 
-[![ABM's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=theabmmohi&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=00FF9C&line=00FF9C&point=FFFFFF)](https://github.com/theabmmohi)
+[![](https://github-readme-activity-graph.vercel.app/graph?username=theabmmohi&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=00FF9C&line=00FF9C&point=FFFFFF)](https://github.com/theabmmohi)
 
 
 
@@ -69,7 +69,9 @@ bug_fixer   : sometimes
 
 
 `Visitors since THAT day:`<br/><br/>
-[![Profile Views](https://komarev.com/ghpvc/?username=theabmmohi&color=00FF9C&style=for-the-badge&label=VISITORS)](https://github.com/theabmmohi)
+[![](https://komarev.com/ghpvc/?username=theabmmohi&color=00FF9C&style=for-the-badge&label=VISITORS)](https://github.com/theabmmohi)
+
+[![](https://raw.githubusercontent.com/theabmmohi/theabmmohi/refs/heads/main/SupportMe.svg)](https://www.supportkori.com/theabmmohi)
 
 ```
 > process.exit(0)  // thanks for visiting 👾
