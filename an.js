@@ -11,7 +11,7 @@ const BADGE_MAP = {
   "HTML":         { label: "HTML5",          color: "E34F26", logo: "html5",       logoColor: "white" },
   "CSS":          { label: "CSS3",           color: "1572B6", logo: "css3",        logoColor: "white" },
   "Shell":        { label: "Shell",          color: "4EAA25", logo: "gnubash",     logoColor: "white" },
-  "Java":         { label: "Java",           color: "ED8B00", logo: "openjdk",     logoColor: "white" },
+  "Java":         { label: "Java",           color: "ED8B00", logo: "java",     logoColor: "white" },
   "C#":           { label: "C%23",           color: "239120", logo: "csharp",      logoColor: "white" },
   "C++":          { label: "C%2B%2B",        color: "00599C", logo: "cplusplus",   logoColor: "white" },
   "C":            { label: "C",              color: "A8B9CC", logo: "c",           logoColor: "black" },
