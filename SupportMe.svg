@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="160" height="52" viewBox="0 0 160 52">
-  <rect width="160" height="52" rx="26" fill="#FFDD00"/>
-  <g transform="translate(22, 12)">
-    <path d="M4 4 Q5 1 6 4" stroke="#000" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-    <path d="M8 4 Q9 1 10 4" stroke="#000" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-    <path d="M1 8 L3 22 Q3.5 24 6 24 L14 24 Q16.5 24 17 22 L19 8 Z" fill="#000"/>
-    <path d="M19 11 Q24 11 24 16 Q24 21 19 21" stroke="#000" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-    <path d="M5 11 L4.2 19" stroke="#FFDD00" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48">
+  <rect rx="24" width="220" height="48" fill="#FFDD00"/>
+  <g transform="translate(12,5) scale(1.6)" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+    <line x1="6" y1="1" x2="6" y2="4"></line>
+    <line x1="10" y1="1" x2="10" y2="4"></line>
+    <line x1="14" y1="1" x2="14" y2="4"></line>
   </g>
-  <text x="60" y="33" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="700" fill="#000" letter-spacing="-0.3">Support me</text>
+  <text x="64" y="30" font-family="sans-serif" font-weight="700" font-size="18" fill="#000000">CupHi?</text>
 </svg>
