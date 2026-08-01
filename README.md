@@ -73,7 +73,7 @@ bug_fixer   : sometimes
 `Visitors since THAT day:`<br/><br/>
 [![](https://komarev.com/ghpvc/?username=theabmmohi&color=00FF9C&style=for-the-badge&label=VISITORS)](https://github.com/theabmmohi)
 
-[<img src="https://raw.githubusercontent.com/theabmmohi/theabmmohi/refs/heads/main/an.svg" width="100" height="20" alt="CupHi?" />](https://www.supportkori.com/theabmmohi)
+[<img src="https://raw.githubusercontent.com/theabmmohi/theabmmohi/refs/heads/main/an.svg" width="150" height="30" alt="CupHi?" />](https://www.supportkori.com/theabmmohi)
 
 ```
 > process.exit(0)  // thanks for visiting 👾
