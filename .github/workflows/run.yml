@@ -1,5 +1,4 @@
 name: Update README Tech Stack
-
 on:
   schedule:
     - cron: "0 18 * * *"
@@ -21,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Run JS
-        run: node an.js
+        run: node readme.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Commit & push if changed
@@ -30,6 +29,6 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git diff --quiet && echo "No changes" || (
             git add README.md &&
-            git commit -m "chore: auto-update tech stack badges [skip ci]" &&
+            git commit -m "Auto-update tech stack badges [CI]" &&
             git push
           )

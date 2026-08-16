@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+@import "https://fonts.googleapis.com/css?family=Poppins:600";
+@import "https://fonts.googleapis.com/css?family=Eczar:800";
+
+body {
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Poppins";
+  box-sizing: border-box;
+  background: #121212;
+  user-select: none;
+  overflow: hidden;
+  height: 100vh;
+  padding: 1em;
+  margin: 0;
+  a {
+    font-family: Monospace;
+    border: 2px solid #555;
+    text-decoration: none;
+    padding: 0.5em 0.75em;
+    align-items: center;
+    transition: 150ms;
+    font-size: 1.1rem;
+    position: fixed;
+    display: flex;
+    color: #555;
+    z-index: 1;
+    svg > polyline { transition: 150ms; }
+    &:hover {
+      border-color: transparent;
+      background: #dadada;
+      color: #333;
+      svg > polyline { stroke: #000; }
+    }
+    &:hover ~ div > h1 { color: #dadada; }
+  }
+  div {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    h1 {
+      transform: translate(-50%, -50%); transition: 750ms ease-in-out;
+      letter-spacing: 0.025em; font-family: "Eczar";
+      white-space: nowrap; position: absolute;
+      font-size: 50vmin; line-height: 1;
+      margin: 0; left: 50%; top: 50%;
+      color: #282828; z-index: -1;
+    }
+  }
+  p {
+    text-shadow: -1px -1px 0 #121212, 1px 1px 0 #121212, -1px 1px 0 #121212, 1px -1px 0 #121212;
+    font-size: calc(1em + 3vmin); position: fixed;
+    color: #dadada; z-index: 1; margin: 0;
+    @media screen and (min-width: 340px) { width: 70%; }
+    @media screen and (min-width: 560px) { width: 50%; }
+    @media screen and (min-width: 940px) { width: 30%; }
+    @media screen and (min-width: 1300px){ width: 25%; }
+  }
+}
+    </style>
+  </head>
+  <body>
+    <a href="/" style="right: 1rem; top: 1rem;">
+      <svg preserveAspectRatio="none" viewBox="0 0 2 1" height="1em" width="1em"><polyline points="0.1, 0.1 0.9, 0.5 0.1, 0.9" stroke-width="0.1" stroke="#777777" fill="none"/></svg>
+      HOME
+    </a>
+    <a href="https://t.me/theabmmohi" style="left: 1rem; bottom: 1rem;">
+      <svg preserveAspectRatio="none" viewBox="0 0 2 1" height="1em" width="1em"><polyline points="0.1, 0.1 0.9, 0.5 0.1, 0.9" stroke-width="0.1" stroke="#777777" fill="none"/></svg>
+      HELP
+    </a>
+    <div><h1 id="code">404</h1></div>
+    <p style="top: 1rem; left: 1rem; text-align: left;">The Page You're Looking For Doesn't Exist Or Has Been Moved.</p>
+    <p style="bottom: 1rem; right: 1rem; text-align: right;" id="quote"></p>
+    <script>
+const quotes = [
+  "The Only Thing We're Allowed To Do... Is To Believe That We Won't Regret The Choice We Made.",
+  "Give Up On Your Dreams And Die. Lead The Recruits Straight Into Hell.",
+  "Someone Who Can't Abandon Everything Can't Change Anything.",
+  "My Soldiers, Rage! My Soldiers, Scream! My Soldiers, Fight!",
+  "Person Who Cannot Sacrifice Anything, Can Change Nothing.",
+  "If You Don't Fight, You Can't Win!",
+  "If You Win, We Live.",
+  "If You Lose, You Die."
+]
+document.getElementById("quote").textContent  = quotes[Math.floor(Math.random() * quotes.length)]
+document.title = "404 – Not Found"
+function rotate() {
+  const deg = (45 / (window.innerWidth / window.innerHeight)) - 45
+  document.getElementById("code").style.transform = `translate(-50%, -50%) rotate(-${deg}deg)`
+}
+rotate()
+window.addEventListener("resize", rotate)
+    </script>
+  </body>
+</html>

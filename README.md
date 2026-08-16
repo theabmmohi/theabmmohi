@@ -1,15 +1,14 @@
 <div align="center">
 
+![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=1000&color=00FF9C&center=true&vCenter=true&width=600&lines=Hey+there%2C+I'm+ImABM+%F0%9F%91%BE;Student+%7C+Developer+%7C+Learner;@theabmmohi+%E2%80%94+everywhere+online)
 
-
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=1000&color=00FF9C&center=true&vCenter=true&width=600&lines=Hey+there%2C+I'm+ImABM+%F0%9F%91%BE;Student+%7C+Developer+%7C+Learner;@theabmmohi+%E2%80%94+everywhere+online)](https://git.io/typing-svg)
-
-[![GitHub](https://img.shields.io/badge/GitHub-theabmmohi-181717?style=flat&logo=github)](https://github.com/theabmmohi)<br/>
-[![Telegram](https://img.shields.io/badge/Telegram-theabmmohi-26A5E4?style=flat&logo=telegram)](https://t.me/theabmmohi)<br/>
-[![Facebook](https://img.shields.io/badge/Facebook-theabmmohi-1877F2?style=flat&logo=facebook)](https://facebook.com/theabmmohi)<br/>
+[![GitHub](https://img.shields.io/badge/GitHub-theabmmohi-181717?style=flat&logo=github)](https://github.com/theabmmohi)
+<br/>
+[![Telegram](https://img.shields.io/badge/Telegram-theabmmohi-26A5E4?style=flat&logo=telegram)](https://t.me/theabmmohi)
+<br/>
+[![Facebook](https://img.shields.io/badge/Facebook-theabmmohi-1877F2?style=flat&logo=facebook)](https://facebook.com/theabmmohi)
+<br/>
 [![Instagram](https://img.shields.io/badge/Instagram-theabmmohi-E4405F?style=flat&logo=instagram)](https://instagram.com/theabmmohi)
-
-
 
 </div>
 
@@ -51,10 +50,11 @@ bug_fixer   : sometimes
 
 <div align="center">
 
+![](https://github-readme-stats.shion.dev/api?username=theabmmohi&theme=aura&hide_border=false&include_all_commits=true&count_private=true)
 
-![](https://github-readme-stats.shion.dev/api?username=theabmmohi&theme=aura&hide_border=false&include_all_commits=true&count_private=true)<br/>
+<br/>
+
 ![](https://streak-stats.demolab.com/?user=theabmmohi&theme=aura&hide_border=false)
-
 
 </div>
 
@@ -62,35 +62,26 @@ bug_fixer   : sometimes
 
 <div align="center">
 
-
-
-[![](https://github-readme-activity-graph.vercel.app/graph?username=theabmmohi&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=00FF9C&line=00FF9C&point=FFFFFF)](https://github.com/theabmmohi)
-
-
+![](https://github-readme-activity-graph.vercel.app/graph?username=theabmmohi&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=00FF9C&line=00FF9C&point=FFFFFF)
 
 </div>
 
 <div align="center">
 
+`Visitors since THAT day:`
 
-`Visitors since THAT day:`<br/><br/>
-[![](https://komarev.com/ghpvc/?username=theabmmohi&color=00FF9C&style=for-the-badge&label=VISITORS)](https://github.com/theabmmohi)
+<br/><br/>
 
-[![](https://raw.githubusercontent.com/theabmmohi/theabmmohi/refs/heads/main/an.svg)](https://www.supportkori.com/theabmmohi)
+![](https://komarev.com/ghpvc/?username=theabmmohi&color=00FF9C&style=for-the-badge&label=VISITORS)
+
+[![](https://cdn.theabmmohi.workers.dev/svg/cuphi.svg)](https://www.supportkori.com/theabmmohi)
 
 ```
 > process.exit(0)  // thanks for visiting 👾
 ```
 
-
 </div>
 
 <div align="center">
-
-
-
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" alt="Bottom Line" width="100%" />
-
-
-  
 </div>
