@@ -29,6 +29,6 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git diff --quiet && echo "No changes" || (
             git add readme.md &&
-            git commit -m "Auto-update tech stack badges [CI]" &&
+            git commit -m "Auto update tech stack [skip ci]" &&
             git push
           )
