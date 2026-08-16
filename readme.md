@@ -31,6 +31,15 @@ bug_fixer   : sometimes
 <!-- TECH-STACK:START -->
 <div align="center">
 
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge" alt="HTML"/>
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge" alt="JavaScript"/>
+<img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge" alt="Java"/>
+<img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge" alt="Kotlin"/>
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge" alt="TypeScript"/>
+<img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge" alt="C++"/>
+<img src="https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge" alt="Vue"/>
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge" alt="Python"/>
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge" alt="CSS"/>
 
 </div>
 <!-- TECH-STACK:END -->
