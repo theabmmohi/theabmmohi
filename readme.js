@@ -1,7 +1,7 @@
 import { Octokit } from "@octokit/rest"
 import { readFileSync, writeFileSync } from "fs"
 const USERNAME = "theabmmohi"
-const README_PATH = "./README.md"
+const readme_PATH = "./readme.md"
 const MIN_BYTES = 500
 const BADGE_MAP = {
   "JavaScript":   { label: "JavaScript",     color: "F7DF1E" },
@@ -69,7 +69,7 @@ function injectBadges(readme, badges) {
   if (readme.includes(START) && readme.includes(END)) {
     return readme.replace(new RegExp(`${START}[\\s\\S]*?${END}`), block)
   }
-  throw new Error("TECH-STACK markers not found in README.md")
+  throw new Error("TECH-STACK markers not found in readme.md")
 }
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN })
 console.log(`🔍 Fetching repos for @${USERNAME}...`)
@@ -94,7 +94,7 @@ for (const repo of repos) {
 }
 console.log(`🛠️  Detected: ${[...techSet].join(", ")}`)
 const badges  = buildBadges(techSet)
-const current = readFileSync(README_PATH, "utf8")
+const current = readFileSync(readme_PATH, "utf8")
 const updated = injectBadges(current, badges)
-writeFileSync(README_PATH, updated, "utf8")
-console.log("✅ README.md updated!")
+writeFileSync(readme_PATH, updated, "utf8")
+console.log("✅ readme.md updated!")
