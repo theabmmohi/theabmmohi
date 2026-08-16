@@ -1,8 +1,8 @@
-import { Octokit } from "@octokit/rest";
-import { readFileSync, writeFileSync } from "fs";
-const USERNAME = "theabmmohi";
-const README_PATH = "./README.md";
-const MIN_BYTES = 500;
+import { Octokit } from "@octokit/rest"
+import { readFileSync, writeFileSync } from "fs"
+const USERNAME = "theabmmohi"
+const README_PATH = "./README.md"
+const MIN_BYTES = 500
 const BADGE_MAP = {
   "JavaScript":   { label: "JavaScript",     color: "F7DF1E" },
   "TypeScript":   { label: "TypeScript",     color: "3178C6" },
@@ -35,9 +35,9 @@ const BADGE_MAP = {
   "Express.js":   { label: "Express.js",     color: "000000" },
   "PostgreSQL":   { label: "PostgreSQL",     color: "4169E1" },
   "Redis":        { label: "Redis",          color: "DC382D" },
-};
+}
 function inferTechs(repo) {
-  const text = [repo.name, repo.description || "", ...(repo.topics || [])].join(" ").toLowerCase();
+  const text = [repo.name, repo.description || "", ...(repo.topics || [])].join(" ").toLowerCase()
   return [
     ["vue",      "Vue.js"],
     ["laravel",  "Laravel"],
@@ -51,50 +51,50 @@ function inferTechs(repo) {
     ["express",  "Express.js"],
     ["postgres", "PostgreSQL"],
     ["redis",    "Redis"],
-  ].filter(([kw]) => text.includes(kw)).map(([, tech]) => tech);
+  ].filter(([kw]) => text.includes(kw)).map(([, tech]) => tech)
 }
 function buildBadges(techSet) {
   return [...techSet].map((tech) => {
-    const cfg = BADGE_MAP[tech];
-    if (!cfg) return null;
-    const label = cfg.label.replace(/ /g, "%20");
-    const url = `https://img.shields.io/badge/${label}-${cfg.color}?style=for-the-badge`;
-    return `![${tech}](${url})`;
-  }).filter(Boolean).join("\n");
+    const cfg = BADGE_MAP[tech]
+    if (!cfg) return null
+    const label = cfg.label.replace(/ /g, "%20")
+    const url = `https://img.shields.io/badge/${label}-${cfg.color}?style=for-the-badge`
+    return `<img src="${url}" alt="${tech}"/>`
+  }).filter(Boolean).join("\n")
 }
 function injectBadges(readme, badges) {
-  const START = "<!-- TECH-STACK:START -->";
-  const END   = "<!-- TECH-STACK:END -->";
-  const block = `${START}\n<div align="center">\n\n${badges}\n\n</div>\n${END}`;
+  const START = "<!-- TECH-STACK:START -->"
+  const END   = "<!-- TECH-STACK:END -->"
+  const block = `${START}\n<div align="center">\n\n${badges}\n\n</div>\n${END}`
   if (readme.includes(START) && readme.includes(END)) {
-    return readme.replace(new RegExp(`${START}[\\s\\S]*?${END}`), block);
+    return readme.replace(new RegExp(`${START}[\\s\\S]*?${END}`), block)
   }
-  throw new Error("TECH-STACK markers not found in README.md");
+  throw new Error("TECH-STACK markers not found in README.md")
 }
-const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
-console.log(`🔍 Fetching repos for @${USERNAME}...`);
+const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN })
+console.log(`🔍 Fetching repos for @${USERNAME}...`)
 const repos = await octokit.paginate(octokit.rest.repos.listForUser, {
   username: USERNAME,
   per_page: 100,
   sort: "updated",
-});
-console.log(`📦 Found ${repos.length} repos`);
-const techSet = new Set();
+})
+console.log(`📦 Found ${repos.length} repos`)
+const techSet = new Set()
 for (const repo of repos) {
   try {
     const { data: langs } = await octokit.rest.repos.listLanguages({
       owner: USERNAME,
       repo: repo.name,
-    });
+    })
     for (const [lang, bytes] of Object.entries(langs)) {
-      if (BADGE_MAP[lang] && bytes >= MIN_BYTES) techSet.add(lang);
+      if (BADGE_MAP[lang] && bytes >= MIN_BYTES) techSet.add(lang)
     }
   } catch {}
-  for (const t of inferTechs(repo)) techSet.add(t);
+  for (const t of inferTechs(repo)) techSet.add(t)
 }
-console.log(`🛠️  Detected: ${[...techSet].join(", ")}`);
-const badges  = buildBadges(techSet);
-const current = readFileSync(README_PATH, "utf8");
-const updated = injectBadges(current, badges);
-writeFileSync(README_PATH, updated, "utf8");
-console.log("✅ README.md updated!");
+console.log(`🛠️  Detected: ${[...techSet].join(", ")}`)
+const badges  = buildBadges(techSet)
+const current = readFileSync(README_PATH, "utf8")
+const updated = injectBadges(current, badges)
+writeFileSync(README_PATH, updated, "utf8")
+console.log("✅ README.md updated!")
