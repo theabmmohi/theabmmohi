@@ -1,4 +1,4 @@
-name: Update README Tech Stack
+name: Update readme Tech Stack
 on:
   schedule:
     - cron: "0 18 * * *"
@@ -6,7 +6,7 @@ on:
     branches: [main]
   workflow_dispatch:
 jobs:
-  update-readme:
+  update:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -28,7 +28,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git diff --quiet && echo "No changes" || (
-            git add README.md &&
+            git add readme.md &&
             git commit -m "Auto-update tech stack badges [CI]" &&
             git push
           )
