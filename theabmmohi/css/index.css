@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+
+
+*, *::before, *::after {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-overflow-scrolling: touch;
+  font-family: "Monospace";
+  user-select: none;
+}
