@@ -2,22 +2,33 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js"
 import * as three from "three"
 import "@css/index.css"
 
+const len = 25
+
 const scene = new three.Scene()
 const light = new three.DirectionalLight(0xffffff, 1)
 const camera = new three.PerspectiveCamera(75, innerWidth / innerHeight, 0.25, 1000)
 const renderer = new three.WebGLRenderer({ alpha: true, antialias: true })
 renderer.setSize(innerWidth, innerHeight)
-camera.position.set(0, 1.8, 5)
+camera.position.set(0, 2, 10)
 camera.add(light)
 scene.add(camera)
 document.getElementById("three").appendChild(renderer.domElement)
 
-const len = 10
-scene.add(makeAxisLine(new three.Vector3(-len, 0, 0), new three.Vector3(len, 0, 0), 0xff0000)) // X red
-scene.add(makeAxisLine(new three.Vector3(0, -len, 0), new three.Vector3(0, len, 0), 0x00ff00))  // Y green
-scene.add(makeAxisLine(new three.Vector3(0, 0, -len), new three.Vector3(0, 0, len), 0x0000ff))  // Z blue
+const axesHelper = new three.AxesHelper(len)
+scene.add(axesHelper)
+const axesHelperNeg = new three.AxesHelper(len)
+axesHelperNeg.scale.set(-1, -1, -1)
+scene.add(axesHelperNeg)
+const gridZX = new three.GridHelper(2 * len, 2 * len)
+scene.add(gridZX)
+const gridYZ = new three.GridHelper(2 * len, 2 * len)
+gridYZ.rotation.z = Math.PI / 2
+scene.add(gridYZ)
+const gridXY = new three.GridHelper(2 * len, 2 * len)
+gridXY.rotation.x = Math.PI / 2
+scene.add(gridXY)
 
-for (let i = -10; i <= 10; i++) {
+for (let i = -len; i <= len; i++) {
   if (i === 0) continue
   const lx = makeLabel(String(i), "red")
   lx.position.set(i, 0.1, 0)
@@ -30,9 +41,22 @@ for (let i = -10; i <= 10; i++) {
   scene.add(lz)
 }
 
+const grids = { XY: gridXY, YZ: gridYZ, ZX: gridZX }
+for (const grid in grids) grids[grid].visible = false
+window.toggleGrid = function (plane) {
+  const grid = grids[plane]
+  if (!grid) return
+  grid.visible = !grid.visible
+}
+
 const controls = new OrbitControls(camera, renderer.domElement)
 controls.target.set(0, 0, 0)
 controls.update()
+
+
+
+
+
 
 
 
@@ -58,8 +82,14 @@ scene.add(sphere)
 const planeGeometry = new three.PlaneGeometry()
 const planeMaterial = new three.MeshStandardMaterial({ color: 0xaaaaaa, side: three.DoubleSide })
 const plane = new three.Mesh(planeGeometry, planeMaterial)
-plane.position.set(2.5, 0.5, 0.5)
+plane.position.set(1.5, 0, 0.5)
+plane.rotation.x = -Math.PI / 2
 scene.add(plane)
+
+
+
+
+
 
 
 
@@ -76,8 +106,6 @@ const fpsAcc = []
 
 function animate() {
   requestAnimationFrame(animate)
-  // box.rotation.x += 0.01
-  // box.rotation.y += 0.01
   const now = performance.now()
   const dt = Math.min(0.05, (now - last) / 1000)
   last = now
@@ -109,10 +137,4 @@ function makeLabel(text, color) {
   const sprite = new three.Sprite(new three.SpriteMaterial({ map: texture }))
   sprite.scale.set(0.4, 0.4, 1)
   return sprite
-}
-
-function makeAxisLine(from, to, color) {
-  const material = new three.LineBasicMaterial({ color })
-  const geometry = new three.BufferGeometry().setFromPoints([from, to])
-  return new three.Line(geometry, material)
 }
