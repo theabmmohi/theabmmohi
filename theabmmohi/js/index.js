@@ -43,11 +43,17 @@ controls.update()
 
 
 
-const geometry = new three.BoxGeometry()
-const material = new three.MeshStandardMaterial({ color: 0xaaaaaa })
-const cube = new three.Mesh(geometry, material)
-cube.position.set(0, 0, 0)
-scene.add(cube)
+const boxGeometry = new three.BoxGeometry(1, 1, 1)
+const boxMaterial = new three.MeshStandardMaterial({ color: 0xaaaaaa })
+const box = new three.Mesh(boxGeometry, boxMaterial)
+box.position.set(0.5, 0.5, 0.5)
+scene.add(box)
+
+const sphereGeometry = new three.SphereGeometry(Math.sqrt(3) / 2)
+const sphereMaterial = new three.MeshStandardMaterial({ color: 0xaaaaaa })
+const sphere = new three.Mesh(sphereGeometry, sphereMaterial)
+sphere.position.set(1.5, 1.5, 1.5)
+scene.add(sphere)
 
 
 
@@ -64,8 +70,8 @@ const fpsAcc = []
 
 function animate() {
   requestAnimationFrame(animate)
-  cube.rotation.x += 0.01
-  cube.rotation.y += 0.01
+  // box.rotation.x += 0.01
+  // box.rotation.y += 0.01
   const now = performance.now()
   const dt = Math.min(0.05, (now - last) / 1000)
   last = now
