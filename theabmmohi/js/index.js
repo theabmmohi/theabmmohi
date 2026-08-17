@@ -49,11 +49,17 @@ const box = new three.Mesh(boxGeometry, boxMaterial)
 box.position.set(0.5, 0.5, 0.5)
 scene.add(box)
 
-const sphereGeometry = new three.SphereGeometry(Math.sqrt(3) / 2)
+const sphereGeometry = new three.SphereGeometry(0.5, 32, 32)
 const sphereMaterial = new three.MeshStandardMaterial({ color: 0xaaaaaa })
 const sphere = new three.Mesh(sphereGeometry, sphereMaterial)
-sphere.position.set(1.5, 1.5, 1.5)
+sphere.position.set(1.5, 0.5, 0.5)
 scene.add(sphere)
+
+const planeGeometry = new three.PlaneGeometry()
+const planeMaterial = new three.MeshStandardMaterial({ color: 0xaaaaaa, side: three.DoubleSide })
+const plane = new three.Mesh(planeGeometry, planeMaterial)
+plane.position.set(2.5, 0.5, 0.5)
+scene.add(plane)
 
 
 
