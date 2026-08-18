@@ -7,18 +7,14 @@
     <script type="module" src="/js/index.js"></script>
   </head>
   <body>
-    <div class="fixed top-0 right-0 p-1 bg-gray-500/50 border border-orange-500 text-white text-xs">
+    <div class="fixed top-0 px-1 bg-white border border-black text-xs w-full flex justify-between">
       <p id="pos"></p>
       <p id="fps"></p>
     </div>
-    <div class="fixed top-0 left-0 p-1 bg-gray-500/50 border border-orange-500 text-white text-xs">
-      <p>@theabmmohi</p>
-      <p>Learning 3JS...!</p>
-    </div>
-    <div class="fixed bottom-0 right-0 p-1 bg-gray-500/50 border border-orange-500 text-white text-xs flex flex-col">
-      <label><input type="checkbox" onchange="toggleGrid('XY')"/>Grid XY</label>
-      <label><input type="checkbox" onchange="toggleGrid('YZ')"/>Grid YZ</label>
-      <label><input type="checkbox" onchange="toggleGrid('ZX')"/>Grid ZX</label>
+    <div class="fixed top-[50%] p-1 bg-gray-500/50 border border-black border-l-0 text-white text-xs flex flex-col gap-2 translate-y-[-50%]">
+      <label class="flex items-center gap-2.5">Grid XY<input type="checkbox" onchange="toggleGrid('XY')"/></label>
+      <label class="flex items-center gap-2.5">Grid YZ<input type="checkbox" onchange="toggleGrid('YZ')"/></label>
+      <label class="flex items-center gap-2.5">Grid ZX<input type="checkbox" onchange="toggleGrid('ZX')"/></label>
     </div>
     <div id="three" style="touch-action:none"></div>
   </body>

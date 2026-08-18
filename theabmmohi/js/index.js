@@ -67,24 +67,42 @@ controls.update()
 
 
 
-const boxGeometry = new three.BoxGeometry(1, 1, 1)
-const boxMaterial = new three.MeshStandardMaterial({ color: 0xaaaaaa })
-const box = new three.Mesh(boxGeometry, boxMaterial)
+const box = new three.Mesh(
+  new three.BoxGeometry(1, 1, 1),
+  new three.MeshStandardMaterial({ color: 0xaaaaaa })
+)
 box.position.set(0.5, 0.5, 0.5)
 scene.add(box)
 
-const sphereGeometry = new three.SphereGeometry(0.5, 32, 32)
-const sphereMaterial = new three.MeshStandardMaterial({ color: 0xaaaaaa })
-const sphere = new three.Mesh(sphereGeometry, sphereMaterial)
+const sphere = new three.Mesh(
+  new three.SphereGeometry(0.5, 32, 32),
+  new three.MeshStandardMaterial({ color: 0xaaaaaa })
+)
 sphere.position.set(1.5, 0.5, 0.5)
 scene.add(sphere)
 
-const planeGeometry = new three.PlaneGeometry()
-const planeMaterial = new three.MeshStandardMaterial({ color: 0xaaaaaa, side: three.DoubleSide })
-const plane = new three.Mesh(planeGeometry, planeMaterial)
+const plane = new three.Mesh(
+  new three.PlaneGeometry(),
+  new three.MeshStandardMaterial({ color: 0xaaaaaa, side: three.DoubleSide })
+)
 plane.position.set(1.5, 0, 0.5)
-plane.rotation.x = -Math.PI / 2
+plane.rotation.x = Math.PI / 2
 scene.add(plane)
+
+const cylinder = new three.Mesh(
+  new three.CylinderGeometry(0.5, 0.5, 1, 32, 32, true),
+  new three.MeshStandardMaterial({ color: 0xaaaaaa, side: three.DoubleSide })
+)
+cylinder.position.set(2.5, 0.5, 0.5)
+scene.add(cylinder)
+
+const cone = new three.Mesh(
+  new three.ConeGeometry(0.5, 1, 32, 32, true),
+  new three.MeshStandardMaterial({ color: 0xaaaaaa, side: three.DoubleSide })
+)
+cone.position.set(3.5, 0.5, 0.5)
+cone.rotation.x = Math.PI
+scene.add(cone)
 
 
 
