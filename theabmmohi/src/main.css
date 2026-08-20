@@ -1,10 +1,12 @@
 @import "tailwindcss";
-
-
-
 *, *::before, *::after {
   -webkit-tap-highlight-color: transparent;
   -webkit-overflow-scrolling: touch;
-  font-family: "Monospace";
-  user-select: none;
+}
+
+#three {
+  flex-direction: column;
+  display: flex;
+  height: 100svh;
+  width: 100svw;
 }

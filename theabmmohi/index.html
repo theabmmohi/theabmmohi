@@ -1,21 +1,12 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@theabmmohi</title>
-    <script type="module" src="/js/index.js"></script>
   </head>
   <body>
-    <div class="fixed top-0 px-1 bg-white border border-black text-xs w-full flex justify-between">
-      <p id="pos"></p>
-      <p id="fps"></p>
-    </div>
-    <div class="fixed top-[50%] p-1 bg-gray-500/50 border border-black border-l-0 text-white text-xs flex flex-col gap-2 translate-y-[-50%]">
-      <label class="flex items-center gap-2.5">Grid XY<input type="checkbox" onchange="toggleGrid('XY')"/></label>
-      <label class="flex items-center gap-2.5">Grid YZ<input type="checkbox" onchange="toggleGrid('YZ')"/></label>
-      <label class="flex items-center gap-2.5">Grid ZX<input type="checkbox" onchange="toggleGrid('ZX')"/></label>
-    </div>
-    <div id="three" style="touch-action:none"></div>
+    <div id="three"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
