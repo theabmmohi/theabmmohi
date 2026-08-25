@@ -1,3 +1,9 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="dark_mode.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="light_mode.svg" />
+  <img alt="theabmmohi's GitHub profile" src="dark_mode.svg" />
+</picture>
+
 <div align="center">
 
 ![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=1000&color=00FF9C&center=true&vCenter=true&width=600&lines=Hey+there%2C+I'm+ImABM+%F0%9F%91%BE;Student+%7C+Developer+%7C+Learner;@theabmmohi+%E2%80%94+everywhere+online)
