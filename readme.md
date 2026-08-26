@@ -64,7 +64,7 @@ bug_fixer   : sometimes
 
 <div align="center">
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=theabmmohi&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=00FF9C&line=00FF9C&point=FFFFFF"/>
+<img src="https://raw.githubusercontent.com/theabmmohi/theabmmohi/main/graph.svg"/>
 
 </div>
 
