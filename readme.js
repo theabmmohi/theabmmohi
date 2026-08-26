@@ -1,8 +1,16 @@
 import { Octokit } from "@octokit/rest"
-import { readFileSync, writeFileSync } from "fs"
-const USERNAME = "theabmmohi"
-const readme_PATH = "./readme.md"
-const MIN_BYTES = 500
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs"
+
+const USERNAME     = "theabmmohi"
+const OS_LINE      = "Android 16" // not derivable from the GitHub API — edit by hand if it changes
+const BIRTH_EPOCH  = 1046579200   // unix seconds — "Uptime" = age, not GitHub account age
+const readme_PATH  = "./readme.md"
+const SVG_PATHS    = ["./dark_mode.svg", "./light_mode.svg"]
+const CACHE_PATH   = "./cache/commits.json"
+const MIN_BYTES    = 500
+const TOP_LANG_N   = 4 // how many languages to show on the "Languages:" line
+
+// ── tech badge lookup (unchanged) ──────────────────────────────────────────
 const BADGE_MAP = {
   "JavaScript":   { label: "JavaScript",     color: "F7DF1E" },
   "TypeScript":   { label: "TypeScript",     color: "3178C6" },
@@ -36,23 +44,17 @@ const BADGE_MAP = {
   "PostgreSQL":   { label: "PostgreSQL",     color: "4169E1" },
   "Redis":        { label: "Redis",          color: "DC382D" },
 }
+
 function inferTechs(repo) {
   const text = [repo.name, repo.description || "", ...(repo.topics || [])].join(" ").toLowerCase()
   return [
-    ["vue",      "Vue.js"],
-    ["laravel",  "Laravel"],
-    ["react",    "React"],
-    ["node",     "Node.js"],
-    ["tailwind", "Tailwind CSS"],
-    ["mysql",    "MySQL"],
-    ["mongo",    "MongoDB"],
-    ["firebase", "Firebase"],
-    ["flutter",  "Flutter"],
-    ["express",  "Express.js"],
-    ["postgres", "PostgreSQL"],
-    ["redis",    "Redis"],
+    ["vue", "Vue.js"], ["laravel", "Laravel"], ["react", "React"], ["node", "Node.js"],
+    ["tailwind", "Tailwind CSS"], ["mysql", "MySQL"], ["mongo", "MongoDB"],
+    ["firebase", "Firebase"], ["flutter", "Flutter"], ["express", "Express.js"],
+    ["postgres", "PostgreSQL"], ["redis", "Redis"],
   ].filter(([kw]) => text.includes(kw)).map(([, tech]) => tech)
 }
+
 function buildBadges(techSet) {
   return [...techSet].map((tech) => {
     const cfg = BADGE_MAP[tech]
@@ -62,6 +64,7 @@ function buildBadges(techSet) {
     return `<img src="${url}" alt="${tech}"/>`
   }).filter(Boolean).join("\n")
 }
+
 function injectBadges(readme, badges) {
   const START = "<!-- TECH-STACK:START -->"
   const END   = "<!-- TECH-STACK:END -->"
@@ -71,7 +74,111 @@ function injectBadges(readme, badges) {
   }
   throw new Error("TECH-STACK markers not found in readme.md")
 }
+
+// ── formatting helpers ──────────────────────────────────────────────────────
+function formatUptime(sinceDate) {
+  const now = new Date()
+  let years  = now.getFullYear() - sinceDate.getFullYear()
+  let months = now.getMonth() - sinceDate.getMonth()
+  let days   = now.getDate() - sinceDate.getDate()
+  if (days < 0) {
+    months -= 1
+    const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0)
+    days += prevMonth.getDate()
+  }
+  if (months < 0) { years -= 1; months += 12 }
+  const y = years  === 1 ? "1 year"   : `${years} years`
+  const m = months === 1 ? "1 month"  : `${months} months`
+  const d = days   === 1 ? "1 day"    : `${days} days`
+  return `${y}, ${m}, ${d}`
+}
+
+function formatNumber(n) {
+  return n.toLocaleString("en-US")
+}
+
+// ── SVG text patching, alignment-preserving ─────────────────────────────────
+// Finds ". <label>: " ... dots ... " <value>" and swaps in a new value while
+// re-sizing the dot leader so the row keeps roughly the same total width.
+function replaceStatValue(svg, label, newValue) {
+  const re = new RegExp(
+    `(<tspan fill="#[0-9a-fA-F]{6}">\\. ${label}: </tspan><tspan fill="#[0-9a-fA-F]{6}">)(\\.+)(</tspan><tspan fill="#[0-9a-fA-F]{6}">) ([^<]*)(</tspan>)`
+  )
+  const match = svg.match(re)
+  if (!match) {
+    console.warn(`⚠️  Could not find "${label}" line in SVG, skipping`)
+    return svg
+  }
+  const [, prefix, dots, mid, oldValue, suffix] = match
+  const targetWidth = dots.length + oldValue.length
+  const newDotsLen  = Math.max(3, targetWidth - newValue.length)
+  const newDots     = ".".repeat(newDotsLen)
+  return svg.replace(re, `${prefix}${newDots}${mid} ${newValue}${suffix}`)
+}
+
+function updateSvg(svg, stats) {
+  svg = replaceStatValue(svg, "OS",        stats.os)
+  svg = replaceStatValue(svg, "Uptime",    stats.uptime)
+  svg = replaceStatValue(svg, "Languages", stats.languages)
+  svg = replaceStatValue(svg, "Repos",     String(stats.repos))
+  svg = replaceStatValue(svg, "Stars",     String(stats.stars))
+  svg = replaceStatValue(svg, "Commits",   formatNumber(stats.commits))
+  svg = replaceStatValue(svg, "Followers", String(stats.followers))
+  return svg
+}
+
+// ── commit counting, cached per calendar year (past years don't change) ────
+async function getTotalCommits(octokit, username, createdAt) {
+  let cache = {}
+  if (existsSync(CACHE_PATH)) {
+    try { cache = JSON.parse(readFileSync(CACHE_PATH, "utf8")) } catch { cache = {} }
+  }
+
+  const startYear = createdAt.getFullYear()
+  const thisYear  = new Date().getFullYear()
+  let total = 0
+
+  for (let year = startYear; year <= thisYear; year++) {
+    // Only the current year can still change, so re-fetch it every run.
+    if (year !== thisYear && cache[year] !== undefined) {
+      total += cache[year]
+      continue
+    }
+    const from = new Date(Date.UTC(year, 0, 1)).toISOString()
+    const to   = new Date(Date.UTC(year, 11, 31, 23, 59, 59)).toISOString()
+    try {
+      const result = await octokit.graphql(
+        `query($login: String!, $from: DateTime!, $to: DateTime!) {
+          user(login: $login) {
+            contributionsCollection(from: $from, to: $to) {
+              totalCommitContributions
+              restrictedContributionsCount
+            }
+          }
+        }`,
+        { login: username, from, to }
+      )
+      const c = result.user.contributionsCollection
+      const yearCommits = c.totalCommitContributions + c.restrictedContributionsCount
+      cache[year] = yearCommits
+      total += yearCommits
+    } catch (err) {
+      console.warn(`⚠️  Failed to fetch commits for ${year}:`, err.message)
+    }
+  }
+
+  mkdirSync("./cache", { recursive: true })
+  writeFileSync(CACHE_PATH, JSON.stringify(cache, null, 2))
+  return total
+}
+
+// ── main ─────────────────────────────────────────────────────────────────
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN })
+
+console.log(`🔍 Fetching profile for @${USERNAME}...`)
+const { data: user } = await octokit.rest.users.getByUsername({ username: USERNAME })
+const createdAt = new Date(user.created_at)
+
 console.log(`🔍 Fetching repos for @${USERNAME}...`)
 const repos = await octokit.paginate(octokit.rest.repos.listForUser, {
   username: USERNAME,
@@ -79,7 +186,12 @@ const repos = await octokit.paginate(octokit.rest.repos.listForUser, {
   sort: "updated",
 })
 console.log(`📦 Found ${repos.length} repos`)
-const techSet = new Set()
+
+const ownRepos = repos.filter((r) => !r.fork)
+const totalStars = ownRepos.reduce((sum, r) => sum + (r.stargazers_count || 0), 0)
+
+const techSet   = new Set()
+const langBytes = {}
 for (const repo of repos) {
   try {
     const { data: langs } = await octokit.rest.repos.listLanguages({
@@ -87,14 +199,43 @@ for (const repo of repos) {
       repo: repo.name,
     })
     for (const [lang, bytes] of Object.entries(langs)) {
+      langBytes[lang] = (langBytes[lang] || 0) + bytes
       if (BADGE_MAP[lang] && bytes >= MIN_BYTES) techSet.add(lang)
     }
   } catch {}
   for (const t of inferTechs(repo)) techSet.add(t)
 }
 console.log(`🛠️  Detected: ${[...techSet].join(", ")}`)
+
+const topLanguages = Object.entries(langBytes)
+  .sort((a, b) => b[1] - a[1])
+  .slice(0, TOP_LANG_N)
+  .map(([lang]) => (BADGE_MAP[lang]?.label ?? lang))
+  .join(", ")
+
+console.log(`🔢 Counting commits (this can take a bit the first run)...`)
+const totalCommits = await getTotalCommits(octokit, USERNAME, createdAt)
+
+const stats = {
+  os:        OS_LINE,
+  uptime:    formatUptime(new Date(BIRTH_EPOCH * 1000)),
+  languages: topLanguages,
+  repos:     ownRepos.length,
+  stars:     totalStars,
+  commits:   totalCommits,
+  followers: user.followers,
+}
+console.log("📊 Stats:", stats)
+
+// update readme.md badges
 const badges  = buildBadges(techSet)
 const current = readFileSync(readme_PATH, "utf8")
-const updated = injectBadges(current, badges)
-writeFileSync(readme_PATH, updated, "utf8")
+writeFileSync(readme_PATH, injectBadges(current, badges), "utf8")
 console.log("✅ readme.md updated!")
+
+// update both SVGs
+for (const path of SVG_PATHS) {
+  const svg = readFileSync(path, "utf8")
+  writeFileSync(path, updateSvg(svg, stats), "utf8")
+  console.log(`✅ ${path} updated!`)
+}

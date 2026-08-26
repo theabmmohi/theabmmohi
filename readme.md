@@ -74,9 +74,6 @@ bug_fixer   : sometimes
 <img src="https://komarev.com/ghpvc/?username=theabmmohi&color=00FF9C&style=for-the-badge&label=VISITORS"/>
 <br/><br/>
 <a href="https://www.supportkori.com/theabmmohi"><img src="https://cdn.theabmmohi.workers.dev/svg/cuphi.svg" width="100" alt="CupHi?"/></a>
-```
-> process.exit(0)  // thanks for visiting 👾
-```
 
 </div>
 
