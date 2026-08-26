@@ -16,7 +16,7 @@
 
 </div>
 
-<br/><br/>
+<br/>
 
 ```yaml
 name        : Im ABM
@@ -32,7 +32,7 @@ bug_fixer   : sometimes
 
 > *"A Tʀᴜᴇ Wᴀʀʀɪᴏʀ Dᴏᴇꜱɴ'ᴛ Nᴇᴇᴅ A Sᴡᴏʀᴅ."* - Thors, Vinland Saga
 
-<br/><br/>
+<br/>
 
 <!-- TECH-STACK:START -->
 <div align="center">
@@ -50,7 +50,7 @@ bug_fixer   : sometimes
 </div>
 <!-- TECH-STACK:END -->
 
-<br/><br/>
+<br/>
 
 <div align="center">
 
@@ -60,7 +60,7 @@ bug_fixer   : sometimes
 
 </div>
 
-<br/><br/>
+<br/>
 
 <div align="center">
 
