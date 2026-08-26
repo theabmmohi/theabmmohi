@@ -1,0 +1,27 @@
+name: Update Graph
+on:
+  schedule:
+    - cron: "0 18 * * *"
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Generate activity graph
+        uses: maurodesouza/github-readme-activity-graph-action@v1
+        with:
+          username: theabmmohi
+          options: theme=tokyo-night&hide_border=true&bg_color=0D1117&color=00FF9C&line=00FF9C&point=FFFFFF
+          output_path: graph.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add activity-graph.svg
+          git diff --staged --quiet || git commit -m "chore: update activity graph [skip ci]"
+          git push
