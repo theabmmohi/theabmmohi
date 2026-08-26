@@ -3,7 +3,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs"
 
 
 const USERNAME     = "theabmmohi"
-const OS_LINE      = "And 16"
+const OS_LINE      = "Android 16"
 const BIRTH_EPOCH  = 1246579200
 const readme_PATH  = "./readme.md"
 const SVG_PATHS    = ["./dark_mode.svg", "./light_mode.svg"]
