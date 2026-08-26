@@ -1,16 +1,17 @@
 import { Octokit } from "@octokit/rest"
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs"
 
+
 const USERNAME     = "theabmmohi"
-const OS_LINE      = "Android 16" // not derivable from the GitHub API — edit by hand if it changes
-const BIRTH_EPOCH  = 1046579200   // unix seconds — "Uptime" = age, not GitHub account age
+const OS_LINE      = "Android 16"
+const BIRTH_EPOCH  = 1246579200
 const readme_PATH  = "./readme.md"
 const SVG_PATHS    = ["./dark_mode.svg", "./light_mode.svg"]
 const CACHE_PATH   = "./cache/commits.json"
 const MIN_BYTES    = 500
-const TOP_LANG_N   = 4 // how many languages to show on the "Languages:" line
+const TOP_LANG_N   = 3
 
-// ── tech badge lookup (unchanged) ──────────────────────────────────────────
+
 const BADGE_MAP = {
   "JavaScript":   { label: "JavaScript",     color: "F7DF1E" },
   "TypeScript":   { label: "TypeScript",     color: "3178C6" },
@@ -75,7 +76,6 @@ function injectBadges(readme, badges) {
   throw new Error("TECH-STACK markers not found in readme.md")
 }
 
-// ── formatting helpers ──────────────────────────────────────────────────────
 function formatUptime(sinceDate) {
   const now = new Date()
   let years  = now.getFullYear() - sinceDate.getFullYear()
@@ -97,9 +97,6 @@ function formatNumber(n) {
   return n.toLocaleString("en-US")
 }
 
-// ── SVG text patching, alignment-preserving ─────────────────────────────────
-// Finds ". <label>: " ... dots ... " <value>" and swaps in a new value while
-// re-sizing the dot leader so the row keeps roughly the same total width.
 function replaceStatValue(svg, label, newValue) {
   const re = new RegExp(
     `(<tspan fill="#[0-9a-fA-F]{6}">\\. ${label}: </tspan><tspan fill="#[0-9a-fA-F]{6}">)(\\.+)(</tspan><tspan fill="#[0-9a-fA-F]{6}">) ([^<]*)(</tspan>)`
@@ -127,19 +124,15 @@ function updateSvg(svg, stats) {
   return svg
 }
 
-// ── commit counting, cached per calendar year (past years don't change) ────
 async function getTotalCommits(octokit, username, createdAt) {
   let cache = {}
   if (existsSync(CACHE_PATH)) {
     try { cache = JSON.parse(readFileSync(CACHE_PATH, "utf8")) } catch { cache = {} }
   }
-
   const startYear = createdAt.getFullYear()
   const thisYear  = new Date().getFullYear()
   let total = 0
-
   for (let year = startYear; year <= thisYear; year++) {
-    // Only the current year can still change, so re-fetch it every run.
     if (year !== thisYear && cache[year] !== undefined) {
       total += cache[year]
       continue
@@ -166,13 +159,11 @@ async function getTotalCommits(octokit, username, createdAt) {
       console.warn(`⚠️  Failed to fetch commits for ${year}:`, err.message)
     }
   }
-
   mkdirSync("./cache", { recursive: true })
   writeFileSync(CACHE_PATH, JSON.stringify(cache, null, 2))
   return total
 }
 
-// ── main ─────────────────────────────────────────────────────────────────
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN })
 
 console.log(`🔍 Fetching profile for @${USERNAME}...`)
@@ -227,13 +218,11 @@ const stats = {
 }
 console.log("📊 Stats:", stats)
 
-// update readme.md badges
 const badges  = buildBadges(techSet)
 const current = readFileSync(readme_PATH, "utf8")
 writeFileSync(readme_PATH, injectBadges(current, badges), "utf8")
 console.log("✅ readme.md updated!")
 
-// update both SVGs
 for (const path of SVG_PATHS) {
   const svg = readFileSync(path, "utf8")
   writeFileSync(path, updateSvg(svg, stats), "utf8")
