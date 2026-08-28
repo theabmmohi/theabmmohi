@@ -37,8 +37,8 @@ bug_fixer   : sometimes
 <!-- TECH-STACK:START -->
 <div align="center">
 
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge" alt="JavaScript"/>
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge" alt="HTML"/>
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge" alt="JavaScript"/>
 <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge" alt="Java"/>
 <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge" alt="Kotlin"/>
 <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge" alt="TypeScript"/>
