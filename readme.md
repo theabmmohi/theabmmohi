@@ -1,7 +1,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="assets/light.svg" />
-  <img alt="theabmmohi's GitHub profile" src="assets/dark.svg" />
+  <img alt="@theabmmohi" src="assets/dark.svg" />
 </picture>
 
 <div align="center">
@@ -18,7 +18,7 @@
 
 <br/>
 
-```yaml
+```yml
 name        : Im ABM
 handle      : @theabmmohi  # everywhere, literally
 status      : $ learning --mode=always
@@ -60,27 +60,7 @@ bug_fixer   : sometimes
 <img src="https://github-readme-stats.shion.dev/api?username=theabmmohi&theme=aura&hide_border=false&include_all_commits=true&count_private=true"/>
 <br/><br/>
 <img src="https://streak-stats.demolab.com/?user=theabmmohi&theme=aura&hide_border=false"/>
-
-</div>
-
-<br/>
-
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/theabmmohi/theabmmohi/main/assets/graph.svg"/>
-
-</div>
-
-<div align="center">
-
-`Visitors since THAT day:`<br/><br/>
-<img src="https://komarev.com/ghpvc/?username=theabmmohi&color=00FF9C&style=for-the-badge&label=VISITORS"/>
 <br/><br/>
-<a href="https://www.supportkori.com/theabmmohi"><img src="https://raw.githubusercontent.com/theabmmohi/theabmmohi/main/assets/cuphi.svg" width="100" alt="CupHi?"/></a>
-
-</div>
-
-<div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" alt="Bottom Line" width="100%" />
+<img src="https://raw.githubusercontent.com/theabmmohi/theabmmohi/main/assets/graph.svg"/>
 
 </div>
