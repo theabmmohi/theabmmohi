@@ -16,12 +16,12 @@ jobs:
         with:
           username: theabmmohi
           options: theme=tokyo-night&hide_border=true&bg_color=0D1117&color=00FF9C&line=00FF9C&point=FFFFFF
-          output_path: graph.svg
+          output_path: assets/graph.svg
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add graph.svg
+          git add assets/graph.svg
           git diff --staged --quiet || git commit -m "chore: update activity graph [skip ci]"
           git push

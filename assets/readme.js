@@ -5,8 +5,8 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs"
 const USERNAME     = "theabmmohi"
 const OS_LINE      = "Android 16"
 const BIRTH_EPOCH  = 1246579200
-const readme_PATH  = "./readme.md"
-const SVG_PATHS    = ["./dark_mode.svg", "./light_mode.svg"]
+const readme_PATH  = "../readme.md"
+const SVG_PATHS    = ["./dark.svg", "./light.svg"]
 const CACHE_PATH   = "./cache/commits.json"
 const MIN_BYTES    = 500
 const TOP_LANG_N   = 3

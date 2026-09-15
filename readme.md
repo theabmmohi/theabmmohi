@@ -1,7 +1,7 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="dark_mode.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="light_mode.svg" />
-  <img alt="theabmmohi's GitHub profile" src="dark_mode.svg" />
+  <source media="(prefers-color-scheme: dark)" srcset="assets/dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="assets/light.svg" />
+  <img alt="theabmmohi's GitHub profile" src="assets/dark.svg" />
 </picture>
 
 <div align="center">
@@ -67,7 +67,7 @@ bug_fixer   : sometimes
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/theabmmohi/theabmmohi/main/graph.svg"/>
+<img src="https://raw.githubusercontent.com/theabmmohi/theabmmohi/main/assets/graph.svg"/>
 
 </div>
 
@@ -76,7 +76,7 @@ bug_fixer   : sometimes
 `Visitors since THAT day:`<br/><br/>
 <img src="https://komarev.com/ghpvc/?username=theabmmohi&color=00FF9C&style=for-the-badge&label=VISITORS"/>
 <br/><br/>
-<a href="https://www.supportkori.com/theabmmohi"><img src="https://cdn.theabmmohi.workers.dev/svg/cuphi.svg" width="100" alt="CupHi?"/></a>
+<a href="https://www.supportkori.com/theabmmohi"><img src="https://raw.githubusercontent.com/theabmmohi/theabmmohi/main/assets/cuphi.svg" width="100" alt="CupHi?"/></a>
 
 </div>
 
