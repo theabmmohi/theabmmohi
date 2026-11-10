@@ -44,9 +44,6 @@ bug_fixer   : sometimes
 <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge" alt="Kotlin"/>
 <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge" alt="React"/>
 <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge" alt="Java"/>
-<img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge" alt="PHP"/>
-<img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge" alt="Dockerfile"/>
-<img src="https://img.shields.io/badge/Shell-4EAA25?style=for-the-badge" alt="Shell"/>
 <img src="https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge" alt="Vue"/>
 <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge" alt="Python"/>
 <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge" alt="C++"/>
